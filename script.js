@@ -2,7 +2,7 @@
 // DYNAMIC INSPIRATIONAL QUOTES
 // ===================================
 
-// Curated inspirational quotes for fallback if api fails
+// Curated inspirational quotes relevant to cancer care
 const fallbackQuotes = [
     { text: "Hope is being able to see that there is light despite all of the darkness.", author: "Desmond Tutu" },
     { text: "Courage doesn't always roar. Sometimes courage is the quiet voice at the end of the day saying, 'I will try again tomorrow.'", author: "Mary Anne Radmacher" },
@@ -17,40 +17,51 @@ const fallbackQuotes = [
 let currentQuoteIndex = 0;
 let quoteRotationInterval;
 
-// Fetch quote from DummyJSON API with fallback
+// Fetch quote from DummyJSON API with relevance filtering
 async function fetchInspirationalQuote() {
-    try {
-        // Using DummyJSON Quotes API - Free, no key required, excellent CORS support
-        const randomId = Math.floor(Math.random() * 100) + 1;
-        const response = await fetch(`https://dummyjson.com/quotes/${randomId}`);
+    // Keywords relevant to cancer care and support
+    const relevantKeywords = [
+        'hope', 'strength', 'courage', 'heal', 'love', 'life',
+        'faith', 'believe', 'strong', 'overcome', 'spirit',
+        'heart', 'care', 'support', 'brave', 'light', 'journey',
+        'persever', 'inspire', 'dream', 'tomorrow', 'future', 'kind'
+    ];
 
-        if (!response.ok) {
-            throw new Error('API request failed');
-        }
+    // Try up to 10 times to get a relevant quote from API
+    for (let attempt = 0; attempt < 10; attempt++) {
+        try {
+            const randomId = Math.floor(Math.random() * 100) + 1;
+            const response = await fetch(`https://dummyjson.com/quotes/${randomId}`);
 
-        const data = await response.json();
+            if (!response.ok) continue;
 
-        if (data && data.quote) {
-            const quote = {
-                text: data.quote,
-                author: data.author
-            };
+            const data = await response.json();
 
-            // Only use if quote is short enough
-            if (quote.text.length <= 150) {
-                return quote;
-            } else {
-                throw new Error('Quote too long');
+            if (data && data.quote) {
+                const quoteText = data.quote.toLowerCase();
+
+                // Check if quote contains relevant keywords
+                const isRelevant = relevantKeywords.some(keyword =>
+                    quoteText.includes(keyword)
+                );
+
+                // Return if relevant and appropriate length
+                if (isRelevant && data.quote.length <= 150) {
+                    return {
+                        text: data.quote,
+                        author: data.author
+                    };
+                }
             }
-        } else {
-            throw new Error('Invalid response');
+        } catch (error) {
+            // Continue to next attempt
         }
-    } catch (error) {
-        // Silently fall back to local quotes
-        const quote = fallbackQuotes[currentQuoteIndex];
-        currentQuoteIndex = (currentQuoteIndex + 1) % fallbackQuotes.length;
-        return quote;
     }
+
+    // Use fallback if no relevant quote found after 10 attempts
+    const quote = fallbackQuotes[currentQuoteIndex];
+    currentQuoteIndex = (currentQuoteIndex + 1) % fallbackQuotes.length;
+    return quote;
 }
 
 // Update quote in the DOM with smooth transition
@@ -310,162 +321,76 @@ function clearError(inputId) {
 }
 
 // Real-time validation
-nameInput.addEventListener('blur', () => {
-    if (!validateName(nameInput.value)) {
-        showError('name', 'Please enter a valid name (at least 2 characters)');
-    } else {
-        clearError('name');
-    }
-});
-
-emailInput.addEventListener('blur', () => {
-    if (!validateEmail(emailInput.value)) {
-        showError('email', 'Please enter a valid email address');
-    } else {
-        clearError('email');
-    }
-});
-
-messageInput.addEventListener('blur', () => {
-    if (!validateMessage(messageInput.value)) {
-        showError('message', 'Please enter a message (at least 10 characters)');
-    } else {
-        clearError('message');
-    }
-});
-
-// Clear errors on input
-[nameInput, emailInput, messageInput].forEach(input => {
-    input.addEventListener('input', () => {
-        clearError(input.id);
-    });
-});
-
-// Form submission
-contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    // Clear previous errors
-    clearError('name');
-    clearError('email');
-    clearError('message');
-
-    // Validate all fields
-    let isValid = true;
-
-    if (!validateName(nameInput.value)) {
-        showError('name', 'Please enter a valid name (at least 2 characters)');
-        isValid = false;
-    }
-
-    if (!validateEmail(emailInput.value)) {
-        showError('email', 'Please enter a valid email address');
-        isValid = false;
-    }
-
-    if (!validateMessage(messageInput.value)) {
-        showError('message', 'Please enter a message (at least 10 characters)');
-        isValid = false;
-    }
-
-    if (!isValid) {
-        return;
-    }
-
-    // Show loading state
-    const submitButton = contactForm.querySelector('.btn-submit');
-    submitButton.classList.add('loading');
-    submitButton.disabled = true;
-
-    // Simulate form submission (since no backend is required)
-    await new Promise(resolve => setTimeout(resolve, 1500));
-
-    // Hide loading state
-    submitButton.classList.remove('loading');
-    submitButton.disabled = false;
-
-    // Show success message
-    formSuccess.classList.add('show');
-
-    // Reset form
-    contactForm.reset();
-
-    // Hide success message after 5 seconds
-    setTimeout(() => {
-        formSuccess.classList.remove('show');
-    }, 5000);
-
-    // Log form data (in real implementation, this would be sent to a backend)
-    console.log('Form submitted:', {
-        name: nameInput.value,
-        email: emailInput.value,
-        message: messageInput.value,
-        timestamp: new Date().toISOString()
-    });
-});
-
-// ===================================
-// SCROLL ANIMATIONS
-// ===================================
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+if (nameInput) {
+    nameInput.addEventListener('blur', () => {
+        if (!validateName(nameInput.value)) {
+            showError('name', 'Please enter a valid name (at least 2 characters)');
+        } else {
+            clearError('name');
         }
     });
-}, observerOptions);
-
-// ===================================
-// PARTICLE ANIMATION
-// ===================================
-function createParticles() {
-    const particlesContainer = document.getElementById('particles');
-    if (!particlesContainer) return;
-
-    const particleCount = 50;
-
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
-
-        // Random positioning
-        const x = Math.random() * 100;
-        const delay = Math.random() * 20;
-        const duration = 15 + Math.random() * 20;
-        const size = 3 + Math.random() * 5;
-
-        particle.style.left = `${x}%`;
-        particle.style.animationDelay = `${delay}s`;
-        particle.style.animationDuration = `${duration}s`;
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-
-        particlesContainer.appendChild(particle);
-    }
 }
 
-// ===================================
-// SCROLL ANIMATIONS UPDATE
-// ===================================
-// Observe elements for animation
-document.querySelectorAll('.service-card, .stat-card, .contact-item, .testimonial-card, .hero-stat-item').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
-});
+if (emailInput) {
+    emailInput.addEventListener('blur', () => {
+        if (!validateEmail(emailInput.value)) {
+            showError('email', 'Please enter a valid email address');
+        } else {
+            clearError('email');
+        }
+    });
+}
 
-// ===================================
-// INITIALIZE
-// ===================================
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('Cancer Awareness & Support page loaded successfully');
-    updateActiveNavLink();
-    createParticles();
-});
+if (messageInput) {
+    messageInput.addEventListener('blur', () => {
+        if (!validateMessage(messageInput.value)) {
+            showError('message', 'Please enter a message (at least 10 characters)');
+        } else {
+            clearError('message');
+        }
+    });
+}
+
+// Form submission
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Clear previous errors
+        clearError('name');
+        clearError('email');
+        clearError('message');
+
+        // Validate all fields
+        let isValid = true;
+
+        if (!validateName(nameInput.value)) {
+            showError('name', 'Please enter a valid name');
+            isValid = false;
+        }
+
+        if (!validateEmail(emailInput.value)) {
+            showError('email', 'Please enter a valid email address');
+            isValid = false;
+        }
+
+        if (!validateMessage(messageInput.value)) {
+            showError('message', 'Please enter a message (at least 10 characters)');
+            isValid = false;
+        }
+
+        if (isValid) {
+            // Show success message
+            formSuccess.style.display = 'block';
+            formSuccess.textContent = 'Thank you for your message! We will get back to you soon.';
+
+            // Reset form
+            contactForm.reset();
+
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                formSuccess.style.display = 'none';
+            }, 5000);
+        }
+    });
+}
