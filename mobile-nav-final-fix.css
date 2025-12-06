@@ -1,0 +1,72 @@
+/* ===================================
+   MOBILE NAV - FINAL FIX
+   Remove underlines, fix width
+   =================================== */
+
+@media (max-width: 768px) {
+
+    /* Remove all text decorations and borders from links */
+    .nav-links.active a,
+    .nav-links.mobile-active a {
+        text-decoration: none !important;
+        border-bottom: none !important;
+        width: auto !important;
+        max-width: 100% !important;
+    }
+
+    /* Remove underline from active state */
+    .nav-links.active a.active,
+    .nav-links.mobile-active a.active {
+        text-decoration: none !important;
+        border-bottom: none !important;
+        box-shadow: none !important;
+    }
+
+    /* Ensure list items don't stretch */
+    .nav-links.active li,
+    .nav-links.mobile-active li {
+        width: 100% !important;
+        list-style: none !important;
+    }
+
+    /* Fix card width - make it more compact */
+    .nav-links.active,
+    .nav-links.mobile-active {
+        width: 260px !important;
+        padding: 1.25rem 0.875rem !important;
+    }
+
+    /* Make links more compact */
+    .nav-links.active a,
+    .nav-links.mobile-active a {
+        padding: 0.75rem 1rem !important;
+        font-size: 0.9375rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Remove any pseudo-elements that might create lines */
+    .nav-links.active a::before,
+    .nav-links.active a::after,
+    .nav-links.mobile-active a::before,
+    .nav-links.mobile-active a::after {
+        display: none !important;
+    }
+
+    /* Ensure no border on hover */
+    .nav-links.active a:hover,
+    .nav-links.mobile-active a:hover {
+        border-bottom: none !important;
+        text-decoration: none !important;
+    }
+}
+
+/* Extra small phones - even more compact */
+@media (max-width: 480px) {
+
+    .nav-links.active,
+    .nav-links.mobile-active {
+        width: calc(100vw - 2rem) !important;
+        max-width: 320px !important;
+    }
+}

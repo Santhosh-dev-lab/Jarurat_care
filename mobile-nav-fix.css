@@ -1,0 +1,185 @@
+/* ===================================
+   MOBILE NAV FIX - SMALL CARD ONLY
+   Override all previous mobile nav styles
+   =================================== */
+
+@media (max-width: 768px) {
+
+    /* Force small card style - override everything */
+    .nav-links.active,
+    .nav-links.mobile-active {
+        position: fixed !important;
+        top: 80px !important;
+        right: 1rem !important;
+        left: auto !important;
+        width: 280px !important;
+        height: auto !important;
+        max-height: calc(100vh - 100px) !important;
+        background: rgba(255, 255, 255, 0.98) !important;
+        backdrop-filter: blur(30px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(30px) saturate(180%) !important;
+        border-radius: 20px !important;
+        border: 1px solid rgba(233, 30, 99, 0.2) !important;
+        box-shadow:
+            0 20px 60px rgba(0, 0, 0, 0.15),
+            0 8px 24px rgba(233, 30, 99, 0.15),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 1.5rem 1rem !important;
+        z-index: 999 !important;
+        overflow-y: auto !important;
+        animation: slideInCard 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    }
+
+    @keyframes slideInCard {
+        from {
+            opacity: 0;
+            transform: translateY(-20px) scale(0.95);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    /* Remove full-page backdrop */
+    .nav-links.active::before,
+    .nav-links.mobile-active::before {
+        display: none !important;
+    }
+
+    /* Menu items styling */
+    .nav-links.active li,
+    .nav-links.mobile-active li {
+        margin: 0.5rem 0 !important;
+        opacity: 0;
+        animation: slideInItem 0.3s ease-out forwards !important;
+    }
+
+    .nav-links.active li:nth-child(1),
+    .nav-links.mobile-active li:nth-child(1) {
+        animation-delay: 0.05s !important;
+    }
+
+    .nav-links.active li:nth-child(2),
+    .nav-links.mobile-active li:nth-child(2) {
+        animation-delay: 0.1s !important;
+    }
+
+    .nav-links.active li:nth-child(3),
+    .nav-links.mobile-active li:nth-child(3) {
+        animation-delay: 0.15s !important;
+    }
+
+    .nav-links.active li:nth-child(4),
+    .nav-links.mobile-active li:nth-child(4) {
+        animation-delay: 0.2s !important;
+    }
+
+    .nav-links.active li:nth-child(5),
+    .nav-links.mobile-active li:nth-child(5) {
+        animation-delay: 0.25s !important;
+    }
+
+    .nav-links.active li:nth-child(6),
+    .nav-links.mobile-active li:nth-child(6) {
+        animation-delay: 0.3s !important;
+    }
+
+    @keyframes slideInItem {
+        from {
+            opacity: 0;
+            transform: translateX(15px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    /* Link styling */
+    .nav-links.active a,
+    .nav-links.mobile-active a {
+        color: #1A202C !important;
+        font-size: 1rem !important;
+        font-weight: 600 !important;
+        padding: 0.875rem 1.25rem !important;
+        border-radius: 12px !important;
+        background: rgba(233, 30, 99, 0.05) !important;
+        border: 1px solid rgba(233, 30, 99, 0.1) !important;
+        transition: all 0.3s ease !important;
+        display: block !important;
+        margin: 0 !important;
+    }
+
+    .nav-links.active a:hover,
+    .nav-links.active a.active,
+    .nav-links.mobile-active a:hover,
+    .nav-links.mobile-active a.active {
+        background: rgba(233, 30, 99, 0.15) !important;
+        border-color: rgba(233, 30, 99, 0.3) !important;
+        transform: translateX(4px) !important;
+        color: var(--primary) !important;
+    }
+
+    /* Donate button */
+    .nav-links.active .btn-donate,
+    .nav-links.mobile-active .btn-donate {
+        background: var(--gradient-primary) !important;
+        color: white !important;
+        font-weight: 700 !important;
+        border: none !important;
+        margin-top: 0.5rem !important;
+        box-shadow: 0 4px 12px rgba(233, 30, 99, 0.3) !important;
+    }
+
+    .nav-links.active .btn-donate:hover,
+    .nav-links.mobile-active .btn-donate:hover {
+        transform: translateX(4px) scale(1.02) !important;
+        box-shadow: 0 6px 16px rgba(233, 30, 99, 0.4) !important;
+    }
+
+    /* Top gradient accent */
+    .nav-links.active::after,
+    .nav-links.mobile-active::after {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 3px !important;
+        background: var(--gradient-primary) !important;
+        border-radius: 20px 20px 0 0 !important;
+    }
+
+    /* Scrollbar */
+    .nav-links.active::-webkit-scrollbar,
+    .nav-links.mobile-active::-webkit-scrollbar {
+        width: 4px !important;
+    }
+
+    .nav-links.active::-webkit-scrollbar-track,
+    .nav-links.mobile-active::-webkit-scrollbar-track {
+        background: rgba(233, 30, 99, 0.05) !important;
+    }
+
+    .nav-links.active::-webkit-scrollbar-thumb,
+    .nav-links.mobile-active::-webkit-scrollbar-thumb {
+        background: rgba(233, 30, 99, 0.3) !important;
+        border-radius: 2px !important;
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+
+    .nav-links.active,
+    .nav-links.mobile-active {
+        width: calc(100vw - 2rem) !important;
+        right: 1rem !important;
+        left: 1rem !important;
+    }
+}
