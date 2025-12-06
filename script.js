@@ -93,11 +93,100 @@ function startQuoteRotation() {
     }, 8000);
 }
 
+
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeQuotes);
 } else {
     initializeQuotes();
+}
+
+// ===================================
+// ANIMATED COUNTER FOR HERO STATS
+// ===================================
+
+// Easing function for smooth animation
+function easeOutQuart(t) {
+    return 1 - Math.pow(1 - t, 4);
+}
+
+function animateCounter(element, target, duration = 2000, suffix = '') {
+    const startTime = performance.now();
+
+    function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easedProgress = easeOutQuart(progress);
+        const current = Math.floor(easedProgress * target);
+
+        element.textContent = current + suffix;
+
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        } else {
+            element.textContent = target + suffix;
+        }
+    }
+
+    requestAnimationFrame(update);
+}
+
+function initializeCounters() {
+    const stats = document.querySelectorAll('.hero-stat-item strong');
+
+    if (stats.length === 0) return;
+
+    // Create an Intersection Observer to trigger animation when stats come into view
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const statElements = entry.target.querySelectorAll('strong');
+
+                // Animate each stat
+                statElements.forEach((stat, index) => {
+                    const text = stat.textContent;
+                    let target = 0;
+                    let suffix = '';
+
+                    // Extract number and suffix
+                    if (text.includes('1000+')) {
+                        target = 1000;
+                        suffix = '+';
+                        setTimeout(() => {
+                            animateCounter(stat, target, 2000, suffix);
+                        }, index * 200);
+                    } else if (text.includes('24/7')) {
+                        // Don't animate 24/7, just show it immediately
+                        stat.textContent = '24/7';
+                    } else if (text.includes('50+')) {
+                        target = 50;
+                        suffix = '+';
+                        setTimeout(() => {
+                            animateCounter(stat, target, 2000, suffix);
+                        }, index * 200);
+                    }
+                });
+
+                // Unobserve after animation starts
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.3
+    });
+
+    // Observe the stats container
+    const statsContainer = document.querySelector('.hero-stats');
+    if (statsContainer) {
+        observer.observe(statsContainer);
+    }
+}
+
+// Initialize counters when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeCounters);
+} else {
+    initializeCounters();
 }
 
 // ===================================

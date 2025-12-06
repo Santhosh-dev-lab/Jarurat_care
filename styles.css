@@ -619,88 +619,158 @@ p {
 .hero-stats {
     display: flex;
     flex-direction: row;
-    gap: var(--space-8);
+    gap: 0;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     flex-wrap: nowrap;
     margin-top: var(--space-6);
-    padding: var(--space-5) var(--space-8);
-    background: rgba(255, 255, 255, 0.35);
-    border-radius: var(--radius-lg);
-    backdrop-filter: blur(16px) saturate(160%);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    padding: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.3) 100%);
+    border-radius: var(--radius-xl);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 32px rgba(233, 30, 99, 0.08),
+        0 2px 8px rgba(0, 0, 0, 0.04);
     animation: fadeInUp 1s ease 0.5s backwards;
-    max-width: 800px;
+    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
+    overflow: hidden;
 }
 
 .hero-stat-item {
     text-align: center;
     flex: 1;
-    padding: 0 var(--space-3);
+    padding: var(--space-6) var(--space-5);
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-stat-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, rgba(233, 30, 99, 0.2), transparent);
+}
+
+.hero-stat-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
 }
 
 .hero-stat-item strong {
-    font-size: 2.25rem;
+    font-size: 2.5rem;
     display: block;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     line-height: 1;
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-3);
     font-weight: 800;
     letter-spacing: -0.02em;
+    transition: transform 0.3s ease;
+}
+
+.hero-stat-item:hover strong {
+    transform: scale(1.05);
+}
+
+.hero-stat-item strong.counting {
+    animation: countPulse 0.5s ease-in-out;
+}
+
+@keyframes countPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
 }
 
 .hero-stat-item span {
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     color: var(--gray-700);
     font-weight: 600;
     display: block;
     line-height: 1.4;
+    transition: color 0.3s ease;
+}
+
+.hero-stat-item:hover span {
+    color: var(--primary);
 }
 
 .hero-stat-divider {
-    width: 1px;
-    height: 40px;
-    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.1), transparent);
-    flex-shrink: 0;
+    display: none;
 }
 
 /* Responsive hero stats */
+@media (max-width: 900px) {
+    .hero-stats {
+        max-width: 95%;
+    }
+
+    .hero-stat-item strong {
+        font-size: 2.25rem;
+    }
+
+    .hero-stat-item span {
+        font-size: 0.75rem;
+    }
+}
+
 @media (max-width: 768px) {
     .hero-stats {
         flex-direction: column;
-        gap: var(--space-5);
-        padding: var(--space-5);
+        gap: 0;
+        padding: 0;
         max-width: 100%;
     }
 
-    .hero-stat-divider {
+    .hero-stat-item {
+        padding: var(--space-5) var(--space-4);
+        border-bottom: 1px solid rgba(233, 30, 99, 0.1);
+    }
+
+    .hero-stat-item:last-child {
+        border-bottom: none;
+    }
+
+    .hero-stat-item:not(:last-child)::after {
         display: none;
     }
 
+    .hero-stat-item strong {
+        font-size: 2.25rem;
+    }
+
+    .hero-stat-item span {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
     .hero-stat-item {
-        padding: var(--space-3) 0;
+        padding: var(--space-4);
     }
 
     .hero-stat-item strong {
         font-size: 2rem;
     }
-}
-
-@media (max-width: 480px) {
-    .hero-stat-item strong {
-        font-size: 1.75rem;
-    }
 
     .hero-stat-item span {
         font-size: 0.6875rem;
+        letter-spacing: 0.08em;
     }
 }
 
