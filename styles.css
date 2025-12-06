@@ -2166,3 +2166,557 @@
         padding: var(--space-6);
     }
 }
+
+/* ===================================
+   IDENTITY DESIGN (ABOUT SECTION)
+   =================================== */
+.about-modern-section {
+    background-color: #FDFBF7;
+    /* Soft cream/beige background like image */
+    padding: var(--space-16) 0;
+    position: relative;
+    overflow: visible;
+}
+
+.about-header .section-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: var(--space-4);
+    color: #1a1a2e;
+}
+
+.about-header .section-description {
+    max-width: 700px;
+    margin: 0 auto var(--space-12);
+    color: var(--gray-600);
+}
+
+/* Floating Values Bar */
+.identity-values-bar {
+    background: var(--gradient-primary);
+    /* Theme Gradient (Pink/Red) */
+    box-shadow: 0 20px 40px rgba(233, 30, 99, 0.25);
+    /* Pinkish shadow */
+    padding: var(--space-8) var(--space-10);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    color: white;
+    transform: translateY(40px);
+    /* Overlap effect */
+}
+
+.id-value-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.id-value-item:hover {
+    transform: translateY(-5px);
+}
+
+.id-icon {
+    font-size: 1.75rem;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    margin-bottom: var(--space-2);
+}
+
+.id-value-item span {
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+/* Identity Card (Vision/Mission) */
+.identity-card {
+    background: white;
+    border-radius: var(--radius-2xl);
+    padding: var(--space-16) var(--space-10) var(--space-10);
+    /* Top padding accounts for overlap */
+    max-width: 1000px;
+    margin: 0 auto;
+    box-shadow: 0 10px 60px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 5;
+}
+
+.identity-content {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: var(--space-10);
+    align-items: start;
+}
+
+.id-column {
+    padding: var(--space-4);
+}
+
+.id-title {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    color: var(--primary);
+    /* Theme Pink */
+    margin-bottom: var(--space-4);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.id-title-icon {
+    font-size: 1.5rem;
+}
+
+.id-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--gray-600);
+}
+
+.id-divider {
+    width: 1px;
+    background: #E5E7EB;
+    height: 100%;
+    min-height: 200px;
+}
+
+@media (max-width: 768px) {
+    .identity-values-bar {
+        flex-wrap: wrap;
+        gap: var(--space-6);
+        justify-content: center;
+        padding: var(--space-6);
+        transform: translateY(20px);
+    }
+
+    .id-value-item {
+        width: 45%;
+    }
+
+    .identity-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+        text-align: center;
+    }
+
+    .id-divider {
+        width: 100%;
+        height: 1px;
+        min-height: 1px;
+    }
+
+    .id-title {
+        justify-content: center;
+    }
+}
+
+/* ===================================
+   PREMIUM IDENTITY DESIGN (ANIMATIONS)
+   =================================== */
+.about-modern-section {
+    background-color: #FDFBF7;
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(233, 30, 99, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(33, 150, 243, 0.05) 0%, transparent 20%);
+    padding: var(--space-16) 0;
+    position: relative;
+    overflow: visible;
+}
+
+.about-header .section-title {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: var(--space-4);
+    color: #1a1a2e;
+    font-weight: 800;
+    background: linear-gradient(135deg, #1a1a2e 0%, #4a4a6a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Floating Values Bar Animation */
+.identity-values-bar {
+    background: var(--gradient-primary);
+    box-shadow: 0 20px 40px rgba(233, 30, 99, 0.3);
+    animation: float 6s ease-in-out infinite;
+    /* Continuous floating */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(40px);
+    }
+
+    50% {
+        transform: translateY(30px);
+    }
+}
+
+.id-value-item {
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.id-value-item:hover {
+    transform: translateY(-8px) scale(1.05);
+}
+
+.id-icon {
+    font-size: 2rem;
+    height: 60px;
+    width: 60px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.id-value-item:hover .id-icon {
+    background: white;
+    color: var(--primary);
+    transform: rotateY(180deg);
+    /* 3D Flip effect */
+}
+
+/* Enhanced Card */
+.identity-card {
+    padding: var(--space-20) var(--space-12) var(--space-12);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.identity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.15);
+}
+
+.id-title {
+    font-size: 2rem;
+    position: relative;
+}
+
+.id-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.id-column:hover .id-title::after {
+    width: 80px;
+}
+
+.id-title-icon {
+    font-size: 1.8rem;
+    background: #FFF0F5;
+    /* Light pink bg */
+    padding: 8px;
+    border-radius: 12px;
+}
+
+.id-divider {
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, #E5E7EB 20%, #E5E7EB 80%, transparent);
+    height: 100%;
+    min-height: 200px;
+    opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    .identity-values-bar {
+        animation: none;
+        /* Disable float on mobile */
+        transform: translateY(20px);
+    }
+
+    .id-divider {
+        width: 80%;
+        height: 1px;
+        min-height: 1px;
+        margin: 0 auto;
+        background: linear-gradient(to right, transparent, #E5E7EB 20%, #E5E7EB 80%, transparent);
+    }
+
+    .id-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* ===================================
+   ULTRA-MODERN REFINEMENTS
+   =================================== */
+
+/* Enhanced Background */
+.about-modern-section {
+    background: linear-gradient(180deg, #FDFBF7 0%, #FFF5F8 100%) !important;
+    padding: clamp(4rem, 10vw, 8rem) 0 !important;
+    overflow: hidden !important;
+}
+
+.about-modern-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(233, 30, 99, 0.2), transparent);
+}
+
+/* Modern Typography */
+.about-header .section-title {
+    font-size: clamp(2rem, 5vw, 3.5rem) !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.02em !important;
+    background: linear-gradient(135deg, #1a1a2e 0%, #e91e63 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+.about-header .section-description {
+    font-size: clamp(1rem, 2vw, 1.125rem) !important;
+    line-height: 1.7 !important;
+}
+
+/* Ultra-Smooth Values Bar */
+.identity-values-bar {
+    border-radius: 24px !important;
+    padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 3vw, 2rem) !important;
+    max-width: min(90%, 950px) !important;
+    box-shadow:
+        0 20px 40px -10px rgba(233, 30, 99, 0.35),
+        0 10px 20px -5px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(40px);
+        box-shadow:
+            0 20px 40px -10px rgba(233, 30, 99, 0.35),
+            0 10px 20px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    50% {
+        transform: translateY(28px);
+        box-shadow:
+            0 30px 60px -15px rgba(233, 30, 99, 0.4),
+            0 15px 30px -8px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.id-value-item {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.id-value-item:hover {
+    transform: translateY(-10px) scale(1.08) !important;
+}
+
+.id-icon {
+    height: clamp(55px, 10vw, 70px) !important;
+    width: clamp(55px, 10vw, 70px) !important;
+    font-size: clamp(1.5rem, 3vw, 2rem) !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    border: 2px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.id-value-item:hover .id-icon {
+    transform: rotateY(360deg) scale(1.1) !important;
+    box-shadow:
+        0 12px 30px rgba(233, 30, 99, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+}
+
+.id-value-item span {
+    font-size: clamp(0.875rem, 1.5vw, 1.05rem) !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.05em !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Premium Identity Card */
+.identity-card {
+    border-radius: 32px !important;
+    padding: clamp(3rem, 8vw, 5rem) clamp(1.5rem, 5vw, 3.5rem) clamp(2rem, 6vw, 3.5rem) !important;
+    max-width: min(95%, 1100px) !important;
+    box-shadow:
+        0 30px 60px -15px rgba(0, 0, 0, 0.12),
+        0 15px 30px -10px rgba(0, 0, 0, 0.08),
+        0 5px 15px -5px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    overflow: hidden !important;
+}
+
+.identity-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.identity-card:hover::before {
+    opacity: 1;
+}
+
+.identity-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow:
+        0 40px 80px -20px rgba(0, 0, 0, 0.15),
+        0 20px 40px -15px rgba(233, 30, 99, 0.1),
+        0 10px 20px -8px rgba(0, 0, 0, 0.08) !important;
+}
+
+.identity-content {
+    gap: clamp(2rem, 6vw, 4rem) !important;
+}
+
+.id-title {
+    font-size: clamp(1.5rem, 3vw, 2.25rem) !important;
+    margin-bottom: var(--space-6) !important;
+    padding-bottom: var(--space-3) !important;
+}
+
+.id-title::after {
+    width: 50px !important;
+    height: 4px !important;
+    border-radius: 4px !important;
+    transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.id-column:hover .id-title::after {
+    width: 100px !important;
+}
+
+.id-title-icon {
+    font-size: clamp(1.5rem, 3vw, 2rem) !important;
+    background: linear-gradient(135deg, #FFF0F5 0%, #FFE4EC 100%) !important;
+    padding: clamp(8px, 2vw, 12px) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 12px rgba(233, 30, 99, 0.15) !important;
+    transition: transform 0.3s ease !important;
+}
+
+.id-column:hover .id-title-icon {
+    transform: scale(1.1) rotate(5deg) !important;
+}
+
+.id-text {
+    font-size: clamp(1rem, 2vw, 1.125rem) !important;
+}
+
+.id-divider {
+    background: linear-gradient(to bottom,
+            transparent 0%,
+            rgba(233, 30, 99, 0.1) 10%,
+            rgba(233, 30, 99, 0.2) 50%,
+            rgba(233, 30, 99, 0.1) 90%,
+            transparent 100%) !important;
+    position: relative !important;
+}
+
+.id-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background: var(--primary);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.1);
+}
+
+/* Mobile Refinements */
+@media (max-width: 768px) {
+    .about-modern-section {
+        padding: clamp(3rem, 8vw, 5rem) 0 !important;
+    }
+
+    .identity-values-bar {
+        border-radius: 20px !important;
+        padding: clamp(1.5rem, 4vw, 2rem) !important;
+        gap: clamp(1rem, 3vw, 1.5rem) !important;
+    }
+
+    .id-value-item {
+        width: calc(50% - 0.75rem) !important;
+        min-width: 120px !important;
+    }
+
+    .identity-card {
+        border-radius: 24px !important;
+        padding: clamp(2.5rem, 6vw, 3.5rem) clamp(1.25rem, 4vw, 2rem) clamp(1.5rem, 4vw, 2.5rem) !important;
+    }
+
+    .identity-content {
+        gap: clamp(2rem, 5vw, 3rem) !important;
+        text-align: center !important;
+    }
+
+    .id-divider {
+        width: 60% !important;
+        background: linear-gradient(to right,
+                transparent 0%,
+                rgba(233, 30, 99, 0.2) 50%,
+                transparent 100%) !important;
+    }
+
+    .id-title {
+        justify-content: center !important;
+        margin-bottom: var(--space-4) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .id-value-item {
+        width: calc(50% - 0.5rem) !important;
+    }
+
+    .id-icon {
+        height: 50px !important;
+        width: 50px !important;
+        font-size: 1.5rem !important;
+    }
+}
