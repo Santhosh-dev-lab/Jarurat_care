@@ -17,15 +17,12 @@ const fallbackQuotes = [
 let currentQuoteIndex = 0;
 let quoteRotationInterval;
 
-// Fetch quote from API with fallback
+// Fetch quote from DummyJSON API with fallback
 async function fetchInspirationalQuote() {
     try {
-        // Try to fetch from API Ninjas Quotes API
-        const response = await fetch('https://api.api-ninjas.com/v2/quotes?category=inspirational', {
-            headers: {
-                'X-Api-Key': 'demo'
-            }
-        });
+        // Using DummyJSON Quotes API - Free, no key required, excellent CORS support
+        const randomId = Math.floor(Math.random() * 100) + 1;
+        const response = await fetch(`https://dummyjson.com/quotes/${randomId}`);
 
         if (!response.ok) {
             throw new Error('API request failed');
@@ -33,10 +30,10 @@ async function fetchInspirationalQuote() {
 
         const data = await response.json();
 
-        if (data && data[0] && data[0].quote) {
+        if (data && data.quote) {
             const quote = {
-                text: data[0].quote,
-                author: data[0].author
+                text: data.quote,
+                author: data.author
             };
 
             // Only use if quote is short enough
