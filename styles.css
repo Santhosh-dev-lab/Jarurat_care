@@ -618,25 +618,32 @@ p {
 
 .hero-stats {
     display: flex;
-    gap: var(--space-10);
+    flex-direction: row;
+    gap: var(--space-8);
     justify-content: center;
-    flex-wrap: wrap;
-    margin-top: var(--space-10);
-    padding: var(--space-6);
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: var(--radius-xl);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    box-shadow: var(--shadow-md);
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-top: var(--space-6);
+    padding: var(--space-5) var(--space-8);
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(16px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
     animation: fadeInUp 1s ease 0.5s backwards;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-stat-item {
     text-align: center;
+    flex: 1;
+    padding: 0 var(--space-3);
 }
 
 .hero-stat-item strong {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
     display: block;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
@@ -645,20 +652,56 @@ p {
     line-height: 1;
     margin-bottom: var(--space-2);
     font-weight: 800;
+    letter-spacing: -0.02em;
 }
 
 .hero-stat-item span {
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--gray-600);
+    color: var(--gray-700);
     font-weight: 600;
+    display: block;
+    line-height: 1.4;
 }
 
 .hero-stat-divider {
     width: 1px;
-    height: 50px;
-    background: var(--gray-200);
+    height: 40px;
+    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+    flex-shrink: 0;
+}
+
+/* Responsive hero stats */
+@media (max-width: 768px) {
+    .hero-stats {
+        flex-direction: column;
+        gap: var(--space-5);
+        padding: var(--space-5);
+        max-width: 100%;
+    }
+
+    .hero-stat-divider {
+        display: none;
+    }
+
+    .hero-stat-item {
+        padding: var(--space-3) 0;
+    }
+
+    .hero-stat-item strong {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-stat-item strong {
+        font-size: 1.75rem;
+    }
+
+    .hero-stat-item span {
+        font-size: 0.6875rem;
+    }
 }
 
 /* ===================================

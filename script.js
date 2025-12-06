@@ -17,6 +17,37 @@ const fallbackQuotes = [
 let currentQuoteIndex = 0;
 let quoteRotationInterval;
 
+// Fetch inspirational quote from API
+async function fetchInspirationalQuote() {
+    try {
+        // Using ZenQuotes API (free, no API key required)
+        const response = await fetch('https://zenquotes.io/api/random');
+        const data = await response.json();
+
+        if (data && data[0]) {
+            const quote = {
+                text: data[0].q,
+                author: data[0].a
+            };
+
+            // Only return quotes that are short enough for single line (max 100 chars)
+            if (quote.text.length <= 100) {
+                return quote;
+            } else {
+                // If quote is too long, use fallback
+                throw new Error('Quote too long');
+            }
+        } else {
+            throw new Error('Invalid API response');
+        }
+    } catch (error) {
+        console.log('Using fallback quote');
+        // Use fallback quotes if API fails or quote is too long
+        const quote = fallbackQuotes[currentQuoteIndex];
+        currentQuoteIndex = (currentQuoteIndex + 1) % fallbackQuotes.length;
+        return quote;
+    }
+}
 
 // Update quote in the DOM with smooth transition
 async function updateQuote() {
