@@ -22,9 +22,9 @@ async function fetchInspirationalQuote() {
     // Keywords relevant to cancer care and support
     const relevantKeywords = [
         'hope', 'strength', 'courage', 'heal', 'love', 'life',
-        'faith', 'believe', 'strong', 'overcome', 'spirit',
+        'faith', 'believe', 'strong', 'overcome',
         'heart', 'care', 'support', 'brave', 'light', 'journey',
-        'persever', 'inspire', 'dream', 'tomorrow', 'future', 'kind'
+        'inspire', 'dream', 'tomorrow', 'kind'
     ];
 
     // Try up to 10 times to get a relevant quote from API
@@ -93,29 +93,28 @@ async function updateQuote() {
 }
 
 // Initialize quotes functionality
-function initializeQuotes() {
+async function initializeQuotes() {
     const quoteText = document.querySelector('.quote-text');
     const quoteAuthor = document.querySelector('.quote-author');
 
     if (!quoteText || !quoteAuthor) return;
 
-    // Show initial quote immediately (no fade)
-    const initialQuote = fallbackQuotes[0];
+    // Fetch and show API quote immediately (no fallback first)
+    const initialQuote = await fetchInspirationalQuote();
     quoteText.textContent = `"${initialQuote.text}"`;
     quoteAuthor.textContent = `— ${initialQuote.author}`;
-    currentQuoteIndex = 1;
 
-    // Start auto-rotation after a delay
+    // Start auto-rotation after a shorter delay (5 seconds instead of 8)
     setTimeout(() => {
         startQuoteRotation();
-    }, 8000);
+    }, 5000);
 }
 
 // Auto-rotate quotes every 8 seconds
 function startQuoteRotation() {
     quoteRotationInterval = setInterval(() => {
         updateQuote();
-    }, 8000);
+    }, 5000);
 }
 
 // Initialize when DOM is ready
@@ -394,3 +393,22 @@ if (contactForm) {
         }
     });
 }
+
+// Force hide scroll indicator on mobile (Failsafe)
+function checkScrollIndicator() {
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (!scrollIndicator) return;
+
+    if (window.innerWidth <= 768) {
+        scrollIndicator.style.setProperty('display', 'none', 'important');
+        scrollIndicator.style.setProperty('visibility', 'hidden', 'important');
+    } else {
+        scrollIndicator.style.display = '';
+        scrollIndicator.style.visibility = '';
+    }
+}
+
+// Run on load and resize
+window.addEventListener('load', checkScrollIndicator);
+window.addEventListener('resize', checkScrollIndicator);
+document.addEventListener('DOMContentLoaded', checkScrollIndicator);

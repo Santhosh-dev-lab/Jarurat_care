@@ -135,4 +135,34 @@ body {
         word-wrap: break-word;
         overflow-wrap: break-word;
     }
+
+    /* Force hide scroll indicator on mobile - using body selector for specificity */
+    body .scroll-indicator,
+    .scroll-indicator {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-stats {
+        gap: 0.25rem !important;
+        padding: 0.75rem !important;
+    }
+
+    .hero-stat-item {
+        padding: 0.5rem 0.25rem !important;
+    }
+
+    .hero-stat-item strong {
+        font-size: 1.25rem !important;
+        margin-bottom: 0.2rem !important;
+    }
+
+    .hero-stat-item span {
+        font-size: 0.4375rem !important;
+        line-height: 1.1 !important;
+    }
 }
