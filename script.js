@@ -20,8 +20,12 @@ let quoteRotationInterval;
 // Fetch quote from API with fallback
 async function fetchInspirationalQuote() {
     try {
-        // Try to fetch from Quotable API
-        const response = await fetch('https://api.quotable.io/quotes/random?maxLength=100&tags=inspirational');
+        // Try to fetch from API Ninjas Quotes API
+        const response = await fetch('https://api.api-ninjas.com/v1/quotes?category=inspirational', {
+            headers: {
+                'X-Api-Key': 'demo'
+            }
+        });
 
         if (!response.ok) {
             throw new Error('API request failed');
@@ -29,11 +33,18 @@ async function fetchInspirationalQuote() {
 
         const data = await response.json();
 
-        if (data && data[0] && data[0].content) {
-            return {
-                text: data[0].content,
+        if (data && data[0] && data[0].quote) {
+            const quote = {
+                text: data[0].quote,
                 author: data[0].author
             };
+
+            // Only use if quote is short enough
+            if (quote.text.length <= 150) {
+                return quote;
+            } else {
+                throw new Error('Quote too long');
+            }
         } else {
             throw new Error('Invalid response');
         }
