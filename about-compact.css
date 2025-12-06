@@ -1,0 +1,225 @@
+/* ===================================
+   COMPACT SINGLE-VIEWPORT ABOUT
+   =================================== */
+
+.about-compact {
+    background: linear-gradient(135deg, #FAFAFA 0%, #FFFFFF 100%);
+    padding: clamp(3rem, 6vw, 5rem) 0;
+    min-height: auto;
+    max-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.about-compact .container {
+    max-width: 1400px;
+}
+
+/* Two-Column Asymmetric Grid */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+}
+
+/* Left Column - Main Content */
+.about-main {
+    padding-right: clamp(1rem, 3vw, 2rem);
+}
+
+.about-main .section-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.about-main .section-title {
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: #0A0A0A;
+    margin-bottom: 1.25rem;
+    font-family: var(--font-display);
+}
+
+.about-description {
+    font-size: clamp(1rem, 1.8vw, 1.125rem);
+    line-height: 1.7;
+    color: #4A5568;
+    margin-bottom: 2rem;
+}
+
+.mission-box {
+    background: linear-gradient(135deg, #FFF0F5 0%, #FFE4EC 100%);
+    padding: clamp(1.5rem, 3vw, 2rem);
+    border-radius: 12px;
+    border-left: 4px solid var(--primary);
+}
+
+.mission-box h3 {
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+    font-family: var(--font-display);
+}
+
+.mission-box p {
+    font-size: clamp(0.9375rem, 1.6vw, 1.0625rem);
+    line-height: 1.7;
+    color: #4A5568;
+    margin: 0;
+}
+
+/* Right Sidebar - Stats & Values */
+.about-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+/* Compact Stats */
+.stats-compact {
+    background: #0A0A0A;
+    padding: clamp(1.5rem, 3vw, 2rem);
+    border-radius: 12px;
+    color: white;
+}
+
+.stats-compact h3 {
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    font-family: var(--font-display);
+}
+
+.stat-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.stat-mini {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-mini strong {
+    display: block;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.01em;
+}
+
+.stat-mini span {
+    display: block;
+    font-size: 0.8125rem;
+    opacity: 0.8;
+    font-weight: 400;
+}
+
+/* Compact Values */
+.values-compact {
+    background: white;
+    padding: clamp(1.5rem, 3vw, 2rem);
+    border-radius: 12px;
+    border: 1px solid #E2E8F0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.value-mini {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid #F7FAFC;
+}
+
+.value-mini:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.value-icon-mini {
+    font-size: 1.75rem;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FAFAFA;
+    border-radius: 8px;
+}
+
+.value-mini strong {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0A0A0A;
+    margin-bottom: 0.25rem;
+}
+
+.value-mini p {
+    font-size: 0.875rem;
+    color: #718096;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Responsive - Tablet */
+@media (max-width: 1024px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-compact {
+        max-height: none;
+        padding: 3rem 0;
+    }
+
+    .about-sidebar {
+        flex-direction: row;
+    }
+
+    .stats-compact,
+    .values-compact {
+        flex: 1;
+    }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+    .about-sidebar {
+        flex-direction: column;
+    }
+
+    .stat-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-compact {
+        padding: 2.5rem 0;
+    }
+
+    .mission-box,
+    .stats-compact,
+    .values-compact {
+        padding: 1.25rem;
+    }
+}
