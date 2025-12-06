@@ -2038,3 +2038,131 @@
         }
     }
 }
+
+/* ===================================
+   MODERN ABOUT SECTION
+   =================================== */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--space-10);
+    align-items: start;
+}
+
+.vision-card {
+    background: linear-gradient(135deg, #1a1a2e 0%, #30305a 100%);
+    color: white;
+    padding: var(--space-8);
+    border-radius: var(--radius-xl);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.vision-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=');
+    mask-image: linear-gradient(to bottom, black, transparent);
+    z-index: 1;
+}
+
+.vision-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-4);
+    background: rgba(255, 255, 255, 0.1);
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    backdrop-filter: blur(10px);
+}
+
+.vision-card h3 {
+    font-size: 1.75rem;
+    margin-bottom: var(--space-4);
+    font-family: var(--font-display);
+    position: relative;
+    z-index: 2;
+}
+
+.vision-card p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    opacity: 0.9;
+    position: relative;
+    z-index: 2;
+}
+
+.about-text-column .lead-text {
+    font-size: 1.25rem;
+    color: var(--gray-700);
+    margin-bottom: var(--space-8);
+    line-height: 1.8;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+}
+
+.value-item {
+    background: var(--white);
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--gray-100);
+    transition: all 0.3s ease;
+}
+
+.value-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(233, 30, 99, 0.2);
+}
+
+.value-icon {
+    font-size: 2rem;
+    margin-bottom: var(--space-3);
+    color: var(--primary);
+}
+
+.value-item h4 {
+    font-size: 1.125rem;
+    margin-bottom: var(--space-2);
+    color: var(--gray-900);
+}
+
+.value-item p {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    margin: 0;
+    line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+    }
+
+    .vision-card {
+        order: 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vision-card {
+        padding: var(--space-6);
+    }
+}
