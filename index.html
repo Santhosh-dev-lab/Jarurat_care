@@ -28,7 +28,7 @@
                 <div class="nav-links">
                     <a href="#home" class="nav-link active">Home</a>
                     <a href="#about" class="nav-link">About</a>
-                    <a href="#support" class="nav-link">Support</a>
+                    <a href="#resources" class="nav-link">Resources</a>
                     <a href="#contact" class="nav-link">Contact</a>
                 </div>
                 <button class="mobile-menu-toggle" aria-label="Toggle menu">
@@ -242,163 +242,65 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials">
+
+
+    <!-- Compact Two-Column Contact Section -->
+    <section id="contact" class="contact-split">
         <div class="container">
-            <div class="section-header">
-                <span class="section-label">Voices of Hope</span>
-                <h2 class="section-title">Stories That Inspire</h2>
-                <p class="section-description">Real stories from real people who found strength and support through
-                    their journey</p>
+            <div class="section-header text-center">
+                <span class="section-label">Get In Touch</span>
+                <h2 class="section-title">We're Here For You</h2>
             </div>
 
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-quote">"</div>
-                    <p class="testimonial-text">"Jarurat Care stood by me when I needed it most. Their
-                        support made my
-                        cancer journey bearable. I'm forever grateful."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">🌸</div>
-                        <div class="author-info">
-                            <h4 class="author-name">Sunita Sharma</h4>
-                            <p class="author-role">Breast Cancer Survivor</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-rating">
-                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
-                    </div>
-                </div>
+            <div class="contact-split-wrapper">
+                <!-- Left: Contact Form -->
+                <div class="contact-form-compact">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm" class="form-simple">
+                        <div class="form-row-simple">
+                            <div class="form-group">
+                                <label for="name">Full Name <span class="required">*</span></label>
+                                <input type="text" id="name" name="name" placeholder="Enter your full name" required
+                                    aria-required="true">
+                                <span class="error-message" id="nameError"></span>
+                            </div>
 
-                <div class="testimonial-card featured">
-                    <div class="testimonial-quote">"</div>
-                    <p class="testimonial-text">"The emotional and financial support from Jarurat Care
-                        helped my family
-                        navigate the darkest times. They truly care about every patient."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">🙏</div>
-                        <div class="author-info">
-                            <h4 class="author-name">Ravi Kumar</h4>
-                            <p class="author-role">Caregiver & Family Member</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-rating">
-                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-quote">"</div>
-                    <p class="testimonial-text">"Finding a community that understands what you're going
-                        through is
-                        priceless. Jarurat Care connected me with others who gave me hope."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">💪</div>
-                        <div class="author-info">
-                            <h4 class="author-name">Priya Mehta</h4>
-                            <p class="author-role">Ovarian Cancer Warrior</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-rating">
-                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <div class="cta-text">
-                    <h2 class="cta-title">Every Contribution Makes a Difference</h2>
-                    <p class="cta-description">Your donation directly funds life-saving treatments, emotional care, and
-                        essential services. Together, we can bring hope to those who need it most.</p>
-                </div>
-                <div class="cta-buttons">
-                    <a href="https://www.jarurat.care/donate" class="btn btn-primary btn-large">
-                        <span class="btn-icon">❤️</span>
-                        <span>Donate Now</span>
-                    </a>
-                    <a href="#contact" class="btn btn-secondary btn-large">
-                        <span class="btn-icon">🤝</span>
-                        <span>Volunteer</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Form Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <div class="section-header">
-                        <span class="section-label">Get In Touch</span>
-                        <h2 class="section-title">We're Here For You</h2>
-                        <p class="section-description">Reach out to us today. Our team is ready to support you through
-                            your journey.</p>
-                    </div>
-
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-item-icon">📧</div>
-                            <div class="contact-item-content">
-                                <h4>Email</h4>
-                                <p>Priyanka.joshi@jarurat.care</p>
+                            <div class="form-group">
+                                <label for="email">Email Address <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" placeholder="your.email@example.com"
+                                    required aria-required="true">
+                                <span class="error-message" id="emailError"></span>
                             </div>
                         </div>
 
-                        <div class="contact-item">
-                            <div class="contact-item-icon">⏰</div>
-                            <div class="contact-item-content">
-                                <h4>Availability</h4>
-                                <p>24/7 Support Available</p>
+                        <div class="form-row-simple">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX">
                             </div>
-                        </div>
 
-                        <div class="contact-item">
-                            <div class="contact-item-icon">🌐</div>
-                            <div class="contact-item-content">
-                                <h4>Website</h4>
-                                <p>www.jarurat.care</p>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <select id="subject" name="subject">
+                                    <option value="">Select a subject</option>
+                                    <option value="support">Request Support</option>
+                                    <option value="volunteer">Volunteer Inquiry</option>
+                                    <option value="donation">Donation Query</option>
+                                    <option value="general">General Question</option>
+                                </select>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="quote-box">
-                        <p class="quote">"Your support is not just important—it's transformative."</p>
-                    </div>
-                </div>
-
-                <div class="contact-form-container">
-                    <form id="contactForm" class="contact-form">
-                        <div class="form-group">
-                            <label for="name">Full Name <span class="required">*</span></label>
-                            <input type="text" id="name" name="name" placeholder="Enter your full name" required
-                                aria-required="true">
-                            <span class="error-message" id="nameError"></span>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email Address <span class="required">*</span></label>
-                            <input type="email" id="email" name="email" placeholder="your.email@example.com" required
-                                aria-required="true">
-                            <span class="error-message" id="emailError"></span>
                         </div>
 
                         <div class="form-group">
                             <label for="message">Your Message <span class="required">*</span></label>
-                            <textarea id="message" name="message" rows="6" placeholder="Tell us how we can help you..."
+                            <textarea id="message" name="message" rows="5" placeholder="Tell us how we can help you..."
                                 required aria-required="true"></textarea>
                             <span class="error-message" id="messageError"></span>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-submit">
+                        <button type="submit" class="btn btn-primary btn-submit-simple" id="submitBtn">
                             <span class="btn-text">Send Message</span>
-                            <span class="btn-loader"></span>
+                            <span class="btn-sent">Sent! ✓</span>
                         </button>
 
                         <div class="form-success" id="formSuccess">
@@ -406,6 +308,17 @@
                             <p>Thank you for reaching out! We'll get back to you soon.</p>
                         </div>
                     </form>
+                </div>
+
+                <!-- Right: Inspirational Quote Section -->
+                <div class="contact-quote-section">
+                    <div class="quote-card-contact">
+                        <div class="quote-icon-contact">💬</div>
+                        <blockquote id="contactQuote" class="contact-quote">
+                            <p class="quote-text-contact">Loading inspiration...</p>
+                            <cite class="quote-author-contact">— Inspiring Minds</cite>
+                        </blockquote>
+                    </div>
                 </div>
             </div>
         </div>
@@ -427,7 +340,7 @@
                     <ul class="footer-links">
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About Us</a></li>
-                        <li><a href="#support">Our Services</a></li>
+                        <li><a href="#resources">Resources</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -444,6 +357,8 @@
 
             <div class="footer-bottom">
                 <p>&copy; 2025 Jarurat Care. All rights reserved. | Made with 💙 for cancer patients and families</p>
+                <p class="founder-email">Founder: <a
+                        href="mailto:Priyanka.joshi@jarurat.care">Priyanka.joshi@jarurat.care</a></p>
             </div>
         </div>
     </footer>

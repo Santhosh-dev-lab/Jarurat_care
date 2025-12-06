@@ -110,18 +110,35 @@ async function initializeQuotes() {
     }, 5000);
 }
 
+// Update contact quote
+async function updateContactQuote() {
+    const quoteText = document.querySelector('.quote-text-contact');
+    const quoteAuthor = document.querySelector('.quote-author-contact');
+
+    if (!quoteText || !quoteAuthor) return;
+
+    const quote = await fetchInspirationalQuote();
+    quoteText.textContent = `"${quote.text}"`;
+    quoteAuthor.textContent = `— ${quote.author}`;
+}
+
 // Auto-rotate quotes every 8 seconds
 function startQuoteRotation() {
     quoteRotationInterval = setInterval(() => {
         updateQuote();
+        updateContactQuote(); // Also update contact quote
     }, 5000);
 }
 
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeQuotes);
+    document.addEventListener('DOMContentLoaded', () => {
+        initializeQuotes();
+        updateContactQuote(); // Initialize contact quote
+    });
 } else {
     initializeQuotes();
+    updateContactQuote(); // Initialize contact quote
 }
 
 // ===================================
@@ -438,3 +455,43 @@ const animateOnScroll = () => {
 };
 
 document.addEventListener('DOMContentLoaded', animateOnScroll);
+
+// ===================================
+// CONTACT FORM SUBMIT HANDLER
+// ===================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+
+    if (contactForm && submitBtn) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Add sent class to button
+            submitBtn.classList.add('sent');
+            submitBtn.disabled = true;
+
+            // Simulate form submission (replace with actual API call)
+            setTimeout(() => {
+                // Show success message
+                const successMsg = document.getElementById('formSuccess');
+                if (successMsg) {
+                    successMsg.classList.add('show');
+                }
+
+                // Reset form
+                contactForm.reset();
+
+                // Reset button after 3 seconds
+                setTimeout(() => {
+                    submitBtn.classList.remove('sent');
+                    submitBtn.disabled = false;
+                    if (successMsg) {
+                        successMsg.classList.remove('show');
+                    }
+                }, 3000);
+            }, 1000);
+        });
+    }
+});

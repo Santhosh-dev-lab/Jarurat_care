@@ -1,0 +1,124 @@
+/* FORCE SMALL MOBILE CONTACT FORM */
+
+@media (max-width: 480px) {
+    .contact-split {
+        padding: 1rem 0 !important;
+    }
+
+    .contact-split .section-header {
+        margin-bottom: 1rem !important;
+    }
+
+    .contact-split .section-title {
+        font-size: 1.375rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .contact-split-wrapper {
+        gap: 1.25rem !important;
+    }
+
+    .contact-form-compact {
+        padding: 0.875rem !important;
+        border-radius: 12px !important;
+        margin: 0 !important;
+    }
+
+    .contact-form-compact h3 {
+        font-size: 1rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+
+    .form-simple .form-row-simple {
+        gap: 0.625rem !important;
+        margin-bottom: 0.625rem !important;
+    }
+
+    .form-simple .form-group {
+        margin-bottom: 0.625rem !important;
+    }
+
+    .form-simple label {
+        font-size: 0.6875rem !important;
+        margin-bottom: 0.25rem !important;
+        font-weight: 600 !important;
+    }
+
+    .form-simple input,
+    .form-simple select,
+    .form-simple textarea {
+        padding: 0.5rem 0.625rem !important;
+        font-size: 0.75rem !important;
+        border-radius: 6px !important;
+        border-width: 1px !important;
+    }
+
+    .form-simple textarea {
+        min-height: 60px !important;
+        max-height: 80px !important;
+    }
+
+    .form-simple select {
+        padding-right: 2rem !important;
+        background-size: 10px !important;
+    }
+
+    .btn-submit-simple {
+        padding: 0.625rem 1.25rem !important;
+        font-size: 0.8125rem !important;
+        border-radius: 8px !important;
+        margin-top: 0.25rem !important;
+    }
+
+    .quote-card-contact {
+        padding: 0.75rem 0.25rem !important;
+    }
+
+    .quote-icon-contact {
+        font-size: 2rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+
+    .quote-text-contact {
+        font-size: 0.875rem !important;
+        line-height: 1.5 !important;
+        margin-bottom: 0.75rem !important;
+    }
+
+    .quote-author-contact {
+        font-size: 0.75rem !important;
+    }
+
+    .form-success {
+        padding: 1rem !important;
+        margin-top: 0.625rem !important;
+        border-radius: 8px !important;
+    }
+
+    .success-icon {
+        font-size: 1.75rem !important;
+        margin-bottom: 0.375rem !important;
+    }
+
+    .form-success p {
+        font-size: 0.8125rem !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .contact-form-compact {
+        padding: 0.75rem !important;
+    }
+
+    .form-simple input,
+    .form-simple select,
+    .form-simple textarea {
+        padding: 0.4375rem 0.5rem !important;
+        font-size: 0.6875rem !important;
+    }
+
+    .btn-submit-simple {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.75rem !important;
+    }
+}

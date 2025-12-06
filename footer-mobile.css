@@ -1,0 +1,62 @@
+/* FORCE FOOTER SECTIONS SIDE BY SIDE ON MOBILE */
+
+@media (max-width: 768px) {
+    .footer-content {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+
+    .footer-section:first-child {
+        grid-column: 1 / -1 !important;
+    }
+
+    .footer-section:nth-child(2),
+    .footer-section:nth-child(3) {
+        display: inline-block !important;
+        width: 48% !important;
+        vertical-align: top !important;
+    }
+
+    .footer-section:nth-child(2) {
+        margin-right: 4% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-content {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+    }
+
+    .footer-section:first-child {
+        width: 100% !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .footer-section:nth-child(2),
+    .footer-section:nth-child(3) {
+        display: inline-block !important;
+        width: 48% !important;
+        vertical-align: top !important;
+        margin: 0 !important;
+    }
+
+    .footer-section:nth-child(2) {
+        margin-right: 4% !important;
+    }
+
+    .footer-section h4 {
+        font-size: 1rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+
+    .footer-links li {
+        margin-bottom: 0.5rem !important;
+    }
+
+    .footer-links a {
+        font-size: 0.875rem !important;
+    }
+}
