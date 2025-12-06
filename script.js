@@ -2,7 +2,7 @@
 // DYNAMIC INSPIRATIONAL QUOTES
 // ===================================
 
-// Fallback quotes in case API fails
+// Curated inspirational quotes for fallback if api fails
 const fallbackQuotes = [
     { text: "Hope is being able to see that there is light despite all of the darkness.", author: "Desmond Tutu" },
     { text: "Courage doesn't always roar. Sometimes courage is the quiet voice at the end of the day saying, 'I will try again tomorrow.'", author: "Mary Anne Radmacher" },
@@ -17,11 +17,11 @@ const fallbackQuotes = [
 let currentQuoteIndex = 0;
 let quoteRotationInterval;
 
-// Fetch inspirational quote from API
+// Fetch quote from API with fallback
 async function fetchInspirationalQuote() {
     try {
-        // Using Quotable API (CORS-friendly, free, no API key required)
-        const response = await fetch('https://api.quotable.io/random?maxLength=100');
+        // Try to fetch from Quotable API
+        const response = await fetch('https://api.quotable.io/quotes/random?maxLength=100&tags=inspirational');
 
         if (!response.ok) {
             throw new Error('API request failed');
@@ -29,24 +29,16 @@ async function fetchInspirationalQuote() {
 
         const data = await response.json();
 
-        if (data && data.content) {
-            const quote = {
-                text: data.content,
-                author: data.author
+        if (data && data[0] && data[0].content) {
+            return {
+                text: data[0].content,
+                author: data[0].author
             };
-
-            // Only return quotes that are short enough for single line (max 100 chars)
-            if (quote.text.length <= 100) {
-                return quote;
-            } else {
-                // If quote is too long, use fallback
-                throw new Error('Quote too long');
-            }
         } else {
-            throw new Error('Invalid API response');
+            throw new Error('Invalid response');
         }
     } catch (error) {
-        // Silently use fallback quotes - no console logging
+        // Silently fall back to local quotes
         const quote = fallbackQuotes[currentQuoteIndex];
         currentQuoteIndex = (currentQuoteIndex + 1) % fallbackQuotes.length;
         return quote;
@@ -88,7 +80,7 @@ function initializeQuotes() {
 
     if (!quoteText || !quoteAuthor) return;
 
-    // Show initial fallback quote immediately (no fade)
+    // Show initial quote immediately (no fade)
     const initialQuote = fallbackQuotes[0];
     quoteText.textContent = `"${initialQuote.text}"`;
     quoteAuthor.textContent = `— ${initialQuote.author}`;
@@ -106,7 +98,6 @@ function startQuoteRotation() {
         updateQuote();
     }, 8000);
 }
-
 
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {

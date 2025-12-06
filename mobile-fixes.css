@@ -1,0 +1,138 @@
+/* ===================================
+   COMPREHENSIVE MOBILE OPTIMIZATION
+   =================================== */
+
+/* Prevent horizontal scroll and layout shifts */
+html {
+    overflow-x: hidden;
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+* {
+    max-width: 100%;
+}
+
+/* Mobile Typography - Smaller, More Readable */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem !important;
+    }
+
+    h2 {
+        font-size: 1.75rem !important;
+    }
+
+    h3 {
+        font-size: 1.25rem !important;
+    }
+
+    p {
+        font-size: 0.9375rem !important;
+    }
+
+    .hero-title {
+        font-size: 1.875rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.75rem !important;
+    }
+
+    h2 {
+        font-size: 1.5rem !important;
+    }
+
+    h3 {
+        font-size: 1.125rem !important;
+    }
+
+    p {
+        font-size: 0.875rem !important;
+    }
+
+    .hero-title {
+        font-size: 1.625rem !important;
+    }
+}
+
+/* Mobile Button Optimization */
+@media (max-width: 768px) {
+    .btn {
+        padding: 0.75rem 1.5rem !important;
+        font-size: 0.875rem !important;
+        min-height: 44px;
+    }
+
+    .btn-icon {
+        font-size: 1rem !important;
+    }
+
+    .hero-buttons {
+        gap: 0.75rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        padding: 0.625rem 1.25rem !important;
+        font-size: 0.8125rem !important;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem !important;
+    }
+}
+
+/* Mobile Hero Section */
+@media (max-width: 768px) {
+    .hero {
+        min-height: auto !important;
+        padding: 4rem 0 3rem !important;
+    }
+
+    .hero-content {
+        padding: 2rem 1rem !important;
+    }
+}
+
+/* Mobile Container Padding */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem !important;
+    }
+
+    section {
+        padding: 3rem 0 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.75rem !important;
+    }
+
+    section {
+        padding: 2rem 0 !important;
+    }
+}
+
+/* Prevent text overflow */
+@media (max-width: 768px) {
+    * {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+}
