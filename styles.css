@@ -566,21 +566,34 @@ p {
 @media (max-width: 768px) {
     .inspirational-quote-container {
         padding: var(--space-3) var(--space-4);
+        margin-bottom: var(--space-4);
     }
 
     .quote-text {
-        font-size: 0.9375rem;
+        font-size: 0.875rem;
         white-space: normal;
+        line-height: 1.5;
+        margin-bottom: var(--space-2);
     }
 
     .quote-author {
-        font-size: 0.8125rem;
+        font-size: 0.75rem;
     }
 }
 
 @media (max-width: 480px) {
+    .inspirational-quote-container {
+        padding: var(--space-2) var(--space-3);
+        margin-bottom: var(--space-3);
+    }
+
     .quote-text {
-        font-size: 0.875rem;
+        font-size: 0.8125rem;
+        line-height: 1.4;
+    }
+
+    .quote-author {
+        font-size: 0.6875rem;
     }
 }
 
@@ -605,6 +618,24 @@ p {
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Responsive hero subtitle */
+@media (max-width: 768px) {
+    .hero-subtitle {
+        font-size: 1.0625rem;
+        line-height: 1.7;
+        margin-bottom: var(--space-6);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-subtitle {
+        font-size: 0.9375rem;
+        line-height: 1.6;
+        margin-bottom: var(--space-5);
+        padding: 0 var(--space-2);
+    }
 }
 
 .hero-buttons {
