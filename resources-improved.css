@@ -1,0 +1,97 @@
+/* ===================================
+   IMPROVED SINGLE-VIEWPORT RESOURCES
+   =================================== */
+
+.resources-compact {
+    min-height: auto !important;
+    padding: clamp(3rem, 5vw, 4rem) 0 !important;
+}
+
+.resources-layout {
+    gap: clamp(2rem, 4vw, 3rem) !important;
+    align-items: start !important;
+}
+
+/* Intro - More Compact */
+.resources-intro {
+    padding-right: clamp(1rem, 2vw, 1.5rem) !important;
+}
+
+.resources-intro .section-title {
+    font-size: clamp(1.875rem, 3.5vw, 2.5rem) !important;
+    margin-bottom: 1rem !important;
+}
+
+.resources-description {
+    font-size: clamp(0.9375rem, 1.6vw, 1.0625rem) !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.awareness-badge {
+    padding: 1rem !important;
+}
+
+/* Links - More Compact */
+.resources-links {
+    padding: clamp(1.25rem, 2.5vw, 1.75rem) !important;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.resources-links::-webkit-scrollbar {
+    width: 6px;
+}
+
+.resources-links::-webkit-scrollbar-track {
+    background: #F7FAFC;
+    border-radius: 10px;
+}
+
+.resources-links::-webkit-scrollbar-thumb {
+    background: rgba(233, 30, 99, 0.3);
+    border-radius: 10px;
+}
+
+.resources-links::-webkit-scrollbar-thumb:hover {
+    background: rgba(233, 30, 99, 0.5);
+}
+
+.resources-links h3 {
+    font-size: 1.25rem !important;
+    margin-bottom: 1.25rem !important;
+}
+
+.resource-link {
+    padding: 0.875rem !important;
+    margin-bottom: 0.625rem !important;
+}
+
+.link-icon {
+    font-size: 1.375rem !important;
+}
+
+.link-content strong {
+    font-size: 0.9375rem !important;
+}
+
+.link-content span {
+    font-size: 0.8125rem !important;
+}
+
+/* Mobile Optimization */
+@media (max-width: 900px) {
+    .resources-compact {
+        padding: 2.5rem 0 !important;
+    }
+
+    .resources-links {
+        max-height: none;
+        overflow-y: visible;
+    }
+}
+
+@media (max-width: 768px) {
+    .resource-link {
+        padding: 0.75rem !important;
+    }
+}
