@@ -83,11 +83,21 @@ async function updateQuote() {
 
 // Initialize quotes functionality
 function initializeQuotes() {
-    // Load initial quote
-    updateQuote();
+    const quoteText = document.querySelector('.quote-text');
+    const quoteAuthor = document.querySelector('.quote-author');
 
-    // Start auto-rotation
-    startQuoteRotation();
+    if (!quoteText || !quoteAuthor) return;
+
+    // Show initial fallback quote immediately (no fade)
+    const initialQuote = fallbackQuotes[0];
+    quoteText.textContent = `"${initialQuote.text}"`;
+    quoteAuthor.textContent = `— ${initialQuote.author}`;
+    currentQuoteIndex = 1;
+
+    // Start auto-rotation after a delay
+    setTimeout(() => {
+        startQuoteRotation();
+    }, 8000);
 }
 
 // Auto-rotate quotes every 8 seconds
