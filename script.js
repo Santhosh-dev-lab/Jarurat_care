@@ -21,7 +21,7 @@ let quoteRotationInterval;
 async function fetchInspirationalQuote() {
     try {
         // Try to fetch from API Ninjas Quotes API
-        const response = await fetch('https://api.api-ninjas.com/v1/quotes?category=inspirational', {
+        const response = await fetch('https://api.api-ninjas.com/v2/quotes?category=inspirational', {
             headers: {
                 'X-Api-Key': 'demo'
             }
