@@ -1,0 +1,166 @@
+/* ===================================
+   ENHANCED BACKGROUND FOR ABOUT SECTION
+   =================================== */
+
+.about-compact {
+    background:
+        /* Top gradient overlay */
+        linear-gradient(180deg, rgba(255, 240, 245, 0.8) 0%, rgba(255, 255, 255, 0.9) 100%),
+        /* Radial gradients for depth */
+        radial-gradient(circle at 15% 20%, rgba(233, 30, 99, 0.12) 0%, transparent 35%),
+        radial-gradient(circle at 85% 80%, rgba(233, 30, 99, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(255, 182, 193, 0.15) 0%, transparent 50%),
+        /* Base gradient */
+        linear-gradient(135deg, #FFF9FA 0%, #FFFFFF 50%, #FFF0F5 100%);
+    padding: clamp(3rem, 6vw, 5rem) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative shapes */
+.about-compact::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(233, 30, 99, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.about-compact::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    left: -150px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(233, 30, 99, 0.06) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float 10s ease-in-out infinite reverse;
+    pointer-events: none;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(30px, -30px) scale(1.1);
+    }
+}
+
+/* Subtle pattern overlay */
+.about-compact .container {
+    position: relative;
+    z-index: 1;
+}
+
+.about-compact .container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(233, 30, 99, 0.02) 35px, rgba(233, 30, 99, 0.02) 70px);
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* Animated particles */
+.about-grid::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle, rgba(233, 30, 99, 0.15) 2px, transparent 2px),
+        radial-gradient(circle, rgba(233, 30, 99, 0.08) 1px, transparent 1px);
+    background-size: 80px 80px, 120px 120px;
+    background-position: 0 0, 60px 60px;
+    animation: particleMove 25s linear infinite;
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+@keyframes particleMove {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+
+    100% {
+        transform: translateY(-80px) translateX(40px);
+    }
+}
+
+/* Glow effect on hover */
+.about-main,
+.about-sidebar {
+    position: relative;
+}
+
+.about-main::before,
+.about-sidebar::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: radial-gradient(circle at center, rgba(233, 30, 99, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+    border-radius: 20px;
+}
+
+.about-main:hover::before,
+.about-sidebar:hover::before {
+    opacity: 1;
+}
+
+/* Mobile background adjustments */
+@media (max-width: 768px) {
+    .about-compact::before {
+        width: 250px;
+        height: 250px;
+        top: -50px;
+        right: -50px;
+    }
+
+    .about-compact::after {
+        width: 300px;
+        height: 300px;
+        bottom: -100px;
+        left: -100px;
+    }
+
+    .about-grid::before {
+        background-size: 50px 50px, 80px 80px;
+        opacity: 0.3;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .about-compact::before,
+    .about-compact::after {
+        display: none;
+    }
+
+    .about-compact {
+        background:
+            linear-gradient(180deg, rgba(255, 240, 245, 0.6) 0%, rgba(255, 255, 255, 0.8) 100%),
+            linear-gradient(135deg, #FFF9FA 0%, #FFFFFF 100%);
+    }
+}

@@ -1,0 +1,250 @@
+/* ===================================
+   ULTRA-INTERESTING BACKGROUND
+   Remove left card, enhance section bg
+   =================================== */
+
+/* Remove white card from left content */
+.about-main {
+    background: transparent !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Enhanced text shadows for readability without card */
+.about-main .section-title {
+    color: #0A0A0A;
+    text-shadow:
+        0 2px 4px rgba(255, 255, 255, 0.9),
+        0 4px 8px rgba(255, 255, 255, 0.7),
+        0 1px 0 rgba(255, 255, 255, 1);
+}
+
+.about-description {
+    color: #1A202C;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.about-main .section-label {
+    background: rgba(233, 30, 99, 0.95);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    text-shadow: none;
+}
+
+/* Ultra-interesting background */
+.about-compact {
+    background:
+        /* Animated gradient mesh */
+        linear-gradient(135deg,
+            rgba(255, 240, 245, 0.9) 0%,
+            rgba(255, 255, 255, 0.95) 25%,
+            rgba(255, 249, 250, 0.9) 50%,
+            rgba(255, 228, 236, 0.95) 75%,
+            rgba(255, 240, 245, 0.9) 100%),
+        /* Multiple vibrant radials */
+        radial-gradient(circle at 15% 20%, rgba(233, 30, 99, 0.25) 0%, transparent 25%),
+        radial-gradient(circle at 85% 80%, rgba(255, 105, 180, 0.2) 0%, transparent 30%),
+        radial-gradient(circle at 50% 50%, rgba(255, 182, 193, 0.18) 0%, transparent 35%),
+        radial-gradient(circle at 25% 75%, rgba(233, 30, 99, 0.15) 0%, transparent 20%),
+        radial-gradient(circle at 75% 25%, rgba(255, 105, 180, 0.12) 0%, transparent 25%),
+        #FFFFFF;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Large animated gradient orbs */
+.about-compact::before {
+    content: '';
+    position: absolute;
+    top: -300px;
+    right: -200px;
+    width: 800px;
+    height: 800px;
+    background:
+        radial-gradient(circle,
+            rgba(233, 30, 99, 0.25) 0%,
+            rgba(255, 105, 180, 0.15) 30%,
+            rgba(255, 182, 193, 0.08) 50%,
+            transparent 70%);
+    border-radius: 50%;
+    animation: morphOrb 20s ease-in-out infinite;
+    filter: blur(60px);
+    pointer-events: none;
+}
+
+.about-compact::after {
+    content: '';
+    position: absolute;
+    bottom: -350px;
+    left: -250px;
+    width: 900px;
+    height: 900px;
+    background:
+        radial-gradient(circle,
+            rgba(255, 105, 180, 0.2) 0%,
+            rgba(233, 30, 99, 0.12) 30%,
+            rgba(255, 182, 193, 0.06) 50%,
+            transparent 70%);
+    border-radius: 50%;
+    animation: morphOrb 25s ease-in-out infinite reverse;
+    filter: blur(70px);
+    pointer-events: none;
+}
+
+@keyframes morphOrb {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+
+    33% {
+        transform: translate(60px, -40px) scale(1.2) rotate(120deg);
+        opacity: 0.8;
+    }
+
+    66% {
+        transform: translate(-40px, 60px) scale(0.9) rotate(240deg);
+        opacity: 0.9;
+    }
+}
+
+/* Animated wave lines */
+.about-compact .container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        repeating-linear-gradient(45deg,
+            transparent,
+            transparent 50px,
+            rgba(233, 30, 99, 0.04) 50px,
+            rgba(233, 30, 99, 0.04) 52px),
+        repeating-linear-gradient(-45deg,
+            transparent,
+            transparent 50px,
+            rgba(255, 105, 180, 0.03) 50px,
+            rgba(255, 105, 180, 0.03) 52px);
+    animation: slidePattern 30s linear infinite;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+@keyframes slidePattern {
+    0% {
+        background-position: 0 0, 0 0;
+    }
+
+    100% {
+        background-position: 100px 100px, -100px -100px;
+    }
+}
+
+/* Floating particles with different sizes */
+.about-grid::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle, rgba(233, 30, 99, 0.2) 4px, transparent 4px),
+        radial-gradient(circle, rgba(255, 105, 180, 0.15) 3px, transparent 3px),
+        radial-gradient(circle, rgba(255, 182, 193, 0.12) 2px, transparent 2px),
+        radial-gradient(circle, rgba(233, 30, 99, 0.1) 5px, transparent 5px);
+    background-size: 150px 150px, 200px 200px, 120px 120px, 180px 180px;
+    background-position: 0 0, 100px 100px, 50px 50px, 150px 150px;
+    animation: floatParticles 40s linear infinite;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+@keyframes floatParticles {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(-150px) translateX(75px) rotate(360deg);
+    }
+}
+
+/* Glowing sparkles */
+.about-compact .container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle, rgba(233, 30, 99, 0.4) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.6) 1px, transparent 1px);
+    background-size: 200px 200px, 300px 300px;
+    background-position: 0 0, 150px 150px;
+    animation: twinkle 5s ease-in-out infinite;
+    pointer-events: none;
+    opacity: 0;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .about-compact::before {
+        width: 500px;
+        height: 500px;
+        top: -150px;
+        right: -100px;
+        filter: blur(40px);
+    }
+
+    .about-compact::after {
+        width: 550px;
+        height: 550px;
+        bottom: -200px;
+        left: -150px;
+        filter: blur(45px);
+    }
+
+    .about-grid::before {
+        background-size: 100px 100px, 130px 130px, 80px 80px, 120px 120px;
+        opacity: 0.4;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .about-compact::before,
+    .about-compact::after {
+        filter: blur(30px);
+        opacity: 0.7;
+    }
+
+    .about-compact .container::before {
+        opacity: 0.4;
+    }
+
+    .about-grid::before {
+        opacity: 0.3;
+    }
+}
